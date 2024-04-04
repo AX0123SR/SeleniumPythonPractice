@@ -6,10 +6,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.action_chains import ActionChains
-
-
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-def test2():
+def test1():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     driver.get("https://www.satisfice.com/")
     driver.implicitly_wait(10)

@@ -21,3 +21,4 @@ def testAlert():
         print("An error occurred:", str(e))
     finally:
         driver.quit()
+

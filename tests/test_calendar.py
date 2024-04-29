@@ -20,12 +20,12 @@ def test_Calendar():
     year = monthYear.split(" ")[1]
     print(month)
     print(year)
-    while not ((month == "June") & (year == "2024")):
+    while not ((month == "December") & (year == "2025")):
         driver.find_element(By.XPATH,"//span[text()='Next']").click()
         monthYear = driver.find_element(By.XPATH, "//div[@class='ui-datepicker-title']").text
         month = monthYear.split(" ")[0]
         year = monthYear.split(" ")[1]
-
+    time.sleep(4)
     driver.find_element(By.XPATH,"//a[text()='19']").click()
     time.sleep(4)
 

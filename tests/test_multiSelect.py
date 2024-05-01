@@ -9,14 +9,12 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 
 def test_checkbox():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-    driver.get("https://www.yatra.com/")
-    time.sleep(2)
-    checkboxes = driver.find_elements(By.XPATH,"//i[@class='ico ico-checkbox']")
-    print(len(checkboxes))
-    l = ["Student Fare Offer","Non Stop Flights","Armed Forces Offer","Senior Citizen Offer"]
-    for i in range(1,len(l)):
-        if i!=2:
-            driver.find_element(By.XPATH,f"//a[@title='{l[i]}']").click()
-            time.sleep(2)
-        else:
-            continue
+    driver.get("https://pynishant.github.io/dropdown-selenium-python-select.html")
+    dropdown = driver.find_element(By.ID,"lang2")
+    drop = Select(dropdown)
+    drop.select_by_visible_text("PHP")
+    drop.select_by_value("python")
+    drop.select_by_index(3)
+    time.sleep(3)
+    drop.deselect_by_visible_text("PHP")
+    time.sleep(3)

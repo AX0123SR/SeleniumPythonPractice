@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -15,8 +17,10 @@ def testAlert():
 
     try:
         alert = WebDriverWait(driver, 5).until(EC.alert_is_present())
+        time.sleep(4)
         alert.send_keys("Ayush Srivastava")
         alert.accept()
+        time.sleep(2)
     except Exception as e:
         print("An error occurred:", str(e))
     finally:

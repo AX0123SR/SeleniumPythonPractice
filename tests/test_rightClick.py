@@ -10,20 +10,21 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service as ChromeService
 
 
-def test_mouseHover():
+def test_rightClick():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-    driver.get("https://www.yatra.com/")
+    driver.get("https://www.geeksforgeeks.org/")
     driver.maximize_window()
-    more_button = driver.find_element(By.XPATH,"//span[@class='more-arr']")
-    action = ActionChains(driver)
-    action.move_to_element(more_button).perform()
+    data = driver.find_element(By.XPATH,"//a[text()='Data Science']")
+    act = ActionChains(driver)
     time.sleep(2)
-    driver.find_element(By.XPATH,"//a[@title='Adventures']").click()
+    # Right click
+    act.context_click(data).perform()
     time.sleep(2)
 
-
-    # driver.implicitly_wait(10)
-    # home = driver.find_element(By.XPATH,"//a[text()='Home']")
+    # Double Click
+    # data = driver.find_element(By.XPATH, "//a[text()='Data Science']")
     # act = ActionChains(driver)
-    # act.move_to_element(home).perform()
-    # time.sleep(4)
+    # time.sleep(2)
+    # # Right click
+    # act.double_click(data).perform()
+    # time.sleep(2)
